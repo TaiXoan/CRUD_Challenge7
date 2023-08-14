@@ -1,31 +1,33 @@
 .navigation button {
-    border-radius: 10px;
-    background: #064ebc;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-    color: aliceblue;
-    padding: 20px;
-    flex-shrink: 0;
-    border: none;
-    width: 119px;
-  }
-  .navigation {
-    padding-left: 924px;
-    display: flex;
-    gap: 5px;
-  }
-  input {
-    padding: 20px;
-    flex-shrink: 0;
-    width: 300px;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-    border: none;
-    margin-left: 15px;
-  }
-  .icon-search {
-    position: absolute;
-    top: 85px;
-    left: 1379px;
-  }
-  
+  border-radius: 10px;
+  background: #064ebc;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  color: aliceblue;
+  padding: 20px;
+  flex-shrink: 0;
+  border: none;
+  width: 119px;
+}
+
+.navigation {
+  padding-left: 924px;
+  display: flex;
+  gap: 5px;
+}
+
+input {
+  padding: 20px;
+  flex-shrink: 0;
+  width: 300px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  border: none;
+  margin-left: 15px;
+}
+
+.icon-search {
+  position: absolute;
+  top: 85px;
+  left: 1379px;
+}
