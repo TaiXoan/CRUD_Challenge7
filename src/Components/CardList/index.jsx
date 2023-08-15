@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
 
+
 const CardList = () => {
     return (
+       
         <div className={styles.formcard}>
             <div className={styles['card-container']}>
                 <div className={styles['card-header']}>
@@ -83,6 +85,7 @@ const CardList = () => {
                 <img className={styles.elephant} src="Images/Elephant.svg" alt="" />
             </div>
         </div>
+      
     );
 }
 

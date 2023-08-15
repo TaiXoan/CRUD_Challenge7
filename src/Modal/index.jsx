@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
+
 class Modal extends Component {
     render() {
         return (
+        
             <div className={styles.modal}>
                 <div className={styles.addcard}>
                     <div className={styles.cardtitle}>Add New Card</div>
@@ -35,6 +37,7 @@ class Modal extends Component {
 
                 </div>
             </div>
+            
         );
     }
 }
