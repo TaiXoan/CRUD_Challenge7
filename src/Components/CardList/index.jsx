@@ -11,7 +11,7 @@ const CardList = () => {
                     </div>
                     <div className={styles['header-content']}>
                         <div className={styles['name-date-container']}>
-                            <div className={styles.name}>Phu Nguyen</div>
+                            <div className={styles.name}>Phu </div>
                             <div className={styles.date}>14/08/2023</div>
                         </div>
                         <div className={styles['icon-wrapper']}>

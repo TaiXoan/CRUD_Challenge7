@@ -8,6 +8,7 @@
   border: none;
   width: 119px;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .navigation {
@@ -27,6 +28,7 @@ input {
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border: none;
   margin-left: 15px;
+  outline: none;
 }
 
 .icon-search {
@@ -40,5 +42,5 @@ input {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px; 
 }
