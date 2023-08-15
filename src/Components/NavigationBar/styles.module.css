@@ -18,7 +18,7 @@
   margin-top: 30px;
 }
 
-input {
+.research {
   padding: 20px;
   flex-shrink: 0;
   width: 300px;
@@ -38,7 +38,6 @@ input {
 }
 .research::placeholder {
   color: #dfdfdf;
-  font-family: Segoe UI;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

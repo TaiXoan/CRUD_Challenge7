@@ -15,7 +15,6 @@
 
 .name {
   color: #000;
-  font-family: Segoe UI;
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -25,7 +24,7 @@
 
 .date {
   color: #5b7083;
-  font-family: Segoe UI;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

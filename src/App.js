@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavigationBar from "./Components/NavigationBar";
 import CardList from "./Components/CardList";
 import NoResult from "./Components/NoResult";
-
+import Modal from "./Modal";
 const App = () => {
   return (
     <Router>
@@ -14,6 +14,7 @@ const App = () => {
           <NavigationBar />
           <CardList />
           <NoResult />
+          <Modal></Modal>
         </div>
       </div>
     </Router>
