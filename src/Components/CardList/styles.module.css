@@ -1,58 +1,57 @@
 .formcard .cardphu,
 .cardmio,
 .cardvaren {
-    background: #fff;
+  background: #fff;
 }
 
 .formcard {
-    display: flex;
-    gap: 88px;
-    margin: 52px;
-    justify-content: center;
+  display: flex;
+  gap: 88px;
+  margin: 52px;
+  justify-content: center;
 }
 
 .card-header {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .name {
-    color: #000;
-    font-family: Segoe UI;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
+  color: #000;
+  font-family: Segoe UI;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .date {
-    color: #5B7083;
-    font-family: Segoe UI;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22.5px;
-
+  color: #5b7083;
+  font-family: Segoe UI;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.5px;
 }
 
 .header-content {
-    display: flex;
-    gap: 95px;
+  display: flex;
+  gap: 95px;
 }
 
 .icon-wrapper {
-    display: flex;
-    gap: 17px;
+  display: flex;
+  gap: 17px;
 }
 
 .description {
-    width: 313px;
-    font-size: 15px;
-    margin-top: 14px;
+  width: 313px;
+  font-size: 15px;
+  margin-top: 14px;
 }
 
 .cat,
 .elephant,
 .baby {
-    margin-top: 15px;
+  margin-top: 15px;
 }
