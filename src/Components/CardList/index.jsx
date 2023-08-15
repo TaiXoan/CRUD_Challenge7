@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import styles from './styles.module.css';
 
+import styles from './styles.module.css';
+import Header from '../Header/Header';
 
 const CardList = () => {
     return (
-       
-        <div className={styles.formcard}>
+        <>
+       <Header />
+          <div className={styles.formcard}>
             <div className={styles['card-container']}>
                 <div className={styles['card-header']}>
                     <div className={styles['profile-image']}>
@@ -85,7 +86,9 @@ const CardList = () => {
                 <img className={styles.elephant} src="Images/Elephant.svg" alt="" />
             </div>
         </div>
-      
+        </>
+     
+        
     );
 }
 

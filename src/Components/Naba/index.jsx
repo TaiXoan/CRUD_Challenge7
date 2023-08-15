@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
 
-const NavigationBar = () => {
-  
+const Naba  = () => {
   return (
     <div className={styles.navigation}>
       <div className={styles.btn}>
@@ -17,4 +16,4 @@ const NavigationBar = () => {
     </div>
   );
 }
-export default NavigationBar;
+export default Naba;
