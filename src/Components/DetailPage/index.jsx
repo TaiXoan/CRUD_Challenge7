@@ -5,9 +5,9 @@ const DetailPage = () => {
     return (
         <div className={styles.detailContainer}>
             <div className={styles.title}>SOCIAL CARD DETAIL</div>
-            <div className={styles.userInfo}>
-                <img className={styles.roundImage} src="Images/Phu.svg" alt="" />
-                <div className={styles.userText}>
+            <div className={styles.userinfo}>
+                <img className={styles.roundimage} src="Images/Phu.svg" alt="" />
+                <div className={styles.usertext}>
                     <div className={styles.firstname}>Binance</div>
                     <div className={styles.birthday}>22/04/2021 (day create)</div>
                 </div>
