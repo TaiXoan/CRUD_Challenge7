@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
 import Header from '../Header/Header';
-const Trash = () => {
+const TrashModal = () => {
 
     return (
         <>
@@ -26,4 +26,4 @@ const Trash = () => {
     );
 }
 
-export default Trash;
+export default TrashModal;

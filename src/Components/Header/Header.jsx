@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Naba from '../Naba';
+import Naba from '../NavigationBar';
 
 const Header =() =>{
 

@@ -20,6 +20,8 @@
   margin-top: 150px;
   width: 514px;
   height: 379px;
+  
+  
 }
 .form {
   margin-left: 45px;
@@ -29,6 +31,7 @@
 
 .fileupload {
   display: flex;
+  
 }
 .descriptionimage{
   display: flex;
@@ -43,10 +46,8 @@
   border-radius: 5px;
   opacity: 1;
   color: #d9d9d9;
-  top: 499px;
-  left: 573px;
   width: 322px;
-  height: 35px;
+  line-height: 35px;
   outline: none;
 }
 .uploadsolid {
@@ -63,12 +64,14 @@
 .descriptionimage{
   gap: 15px;
   margin-bottom: 20px;
+  
 }
 
 .btn {
   margin-left: 256px;
   gap: 20px;
   display: flex;
+  
 }
 
 .deletebtn {
@@ -95,4 +98,9 @@
   padding: 13px 18px 13px 18px;
   outline: none;
   border: none;
+}
+hr {
+  width: 427px;
+  margin-right: 84px;
+  margin-bottom: 19px;
 }

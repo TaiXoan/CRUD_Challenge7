@@ -1,0 +1,36 @@
+.detailHeader {
+  text-align: center;
+  font: normal normal bold 35px/47px Segoe UI;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+  padding: 50px 507px 0px 507px;
+  margin-bottom: 40px;
+}
+
+.roundImage {
+  margin-left: 100px;
+  border-radius: 50%;
+  height: 100%;
+}
+.detailContent {
+  display: flex;
+}
+.title {
+  margin-left: 15px;
+}
+.firstname {
+  margin-bottom: 5px;
+}
+.description {
+  margin-left: 100px;
+  margin-bottom: 20px;
+  width: 1160px;
+}
+.birtday {
+  margin-bottom: 15px;
+}
+.heuimage {
+
+  padding: 20px 311px 0px 255px;
+}
