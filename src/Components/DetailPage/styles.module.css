@@ -31,6 +31,57 @@
   margin-bottom: 15px;
 }
 .heuimage {
-
+  width: 800px;
   padding: 20px 311px 0px 255px;
+}
+.iconheartmess {
+  display: flex;
+  margin-left: 125px;
+  margin-top: 31px;
+  gap: 25px;
+  margin-bottom: 27px;
+}
+.hearticon {
+  display: flex;
+  gap: 5px;
+}
+.messageicon {
+  display: flex;
+  gap: 7px;
+}
+hr {
+  width: 90%;
+  height: 2px;
+  background-color: #d9d9d9;
+  border: none;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 29px;
+}
+.scripts {
+  width: 1143px;
+}
+.detailpage {
+  margin-left: 100px;
+}
+.thefirst {
+  padding-bottom: 15px;
+}
+.titlecomment {
+  margin-left: 283px;
+  color: #000000;
+  text-align: left;
+  font: normal normal 600 18px/24px Segoe UI;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+.commentinput {
+  margin-left: 283px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  opacity: 1;
+  width: 800px;
+  height: 150px;
 }

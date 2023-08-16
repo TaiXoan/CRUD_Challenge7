@@ -42,7 +42,7 @@ const AddCardModal = () => {
                             <div className={styles.line}></div>
 
                         </div>
-                        <hr />
+                        {/* <hr /> */}
                         <div className={styles.btn}>
                             <button className={styles.deletebtn}>Delete</button>
                             <button className={styles.cancelbtn}>Cancel</button>
