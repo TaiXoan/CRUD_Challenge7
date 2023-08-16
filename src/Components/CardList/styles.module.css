@@ -58,3 +58,21 @@
 .icon-wrapper{
   cursor: pointer;
 }
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .formcard {
+      display: block;
+  }
+  .cat,.baby,.elephant{
+    margin-bottom: 20px;
+  }
+  .navigation{
+    gap: 5px;
+    margin-top: 30px;
+    display: grid;
+}
+   
+  }
+ 
