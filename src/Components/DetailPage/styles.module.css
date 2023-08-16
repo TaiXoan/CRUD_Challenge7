@@ -1,87 +1,122 @@
-.detailHeader {
+.roundImage {
+  border-radius: 50%;
+  height: 100%;
+}
+.iconheartmess {
+  display: flex;
+  gap: 25px;
+}
+.heart,
+.meseges {
+  display: flex;
+  gap: 5px;
+}
+.detailContainer {
+  width: 1160px;
+  margin: 0 auto;
+  letter-spacing: 0px;
+  color: #000000;
+  padding: 0px 0px 161px 0px;
+}
+
+.title {
+  margin-top: 50px;
+  margin-bottom: 41px;
   text-align: center;
   font: normal normal bold 35px/47px Segoe UI;
   letter-spacing: 0px;
   color: #000000;
-  opacity: 1;
-  padding: 50px 507px 0px 507px;
-  margin-bottom: 40px;
 }
-
-.roundImage {
-  margin-left: 100px;
-  border-radius: 50%;
-  height: 100%;
-}
-.detailContent {
+.userInfo {
   display: flex;
-}
-.title {
-  margin-left: 15px;
-}
-.firstname {
-  margin-bottom: 5px;
-}
-.description {
-  margin-left: 100px;
-  margin-bottom: 20px;
-  width: 1160px;
-}
-.birtday {
+  gap: 15px;
+  align-items: center;
   margin-bottom: 15px;
 }
-.heuimage {
-  width: 800px;
-  padding: 20px 311px 0px 255px;
+.userAvatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
-.iconheartmess {
-  display: flex;
-  margin-left: 125px;
-  margin-top: 31px;
-  gap: 25px;
-  margin-bottom: 27px;
-}
-.hearticon {
-  display: flex;
-  gap: 5px;
-}
-.messageicon {
-  display: flex;
-  gap: 7px;
-}
-hr {
-  width: 90%;
-  height: 2px;
-  background-color: #d9d9d9;
-  border: none;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 29px;
-}
-.scripts {
-  width: 1143px;
-}
-.detailpage {
-  margin-left: 100px;
-}
-.thefirst {
-  padding-bottom: 15px;
-}
-.titlecomment {
-  margin-left: 283px;
-  color: #000000;
-  text-align: left;
+
+.firstname {
   font: normal normal 600 18px/24px Segoe UI;
+  margin-bottom: 5px;
+}
+.birtday {
+  font: normal normal normal 15px/20px Segoe UI;
+}
+.generaldescription {
+  font: normal normal normal 15px/20px Segoe UI;
+  margin-bottom: 20px;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 31px;
+  width: 800px;
+  height: 350px;
+  margin-left: 190px;
+}
+.count {
+  font: normal normal normal 15px/20px Segoe UI;
   letter-spacing: 0px;
   color: #000000;
-  opacity: 1;
 }
-.commentinput {
-  margin-left: 283px;
+.line {
+  margin-top: 30px;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 20px;
+}
+.comments {
+  margin-bottom: 15px;
+}
+.day {
+  font: normal normal normal 15px/20px Segoe UI;
+  letter-spacing: 0px;
+  color: #5b7083;
+  margin-bottom: 5px;
+}
+.formcomment {
+  margin-bottom: 161px;
+}
+.commentcontent {
+  font: normal normal normal 15px/20px Segoe UI;
+  letter-spacing: 0px;
+  color: #000000;
+}
+.posttext {
+  font: normal normal 600 18px/24px Segoe UI;
+  margin-left: 143px;
+  margin-bottom: 15px;
+}
+.formcontent {
+  display: flex;
+  justify-content: center;
+}
+.formcontent input {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
-  opacity: 1;
-  width: 800px;
-  height: 150px;
+  outline: none;
+}
+.commentinput {
+  padding: 20px 690px 113px 20px;
+}
+.commentinput::placeholder {
+  font: normal normal normal 13px/17px Segoe UI;
+  color: #d9d9d9;
+}
+.formcontent button {
+  position: absolute;
+  margin: 87px 20px 20px -96px;
+  width: 76px;
+  height: 43px;
+  background: #064ebc 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 10px;
+  border: none;
+  font: normal normal bold 13px/17px Segoe UI;
+  letter-spacing: 0px;
+  color: #ffffff;
 }
