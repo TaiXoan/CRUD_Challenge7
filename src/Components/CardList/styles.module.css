@@ -1,5 +1,3 @@
-
-
 .formcard {
   display: flex;
   gap: 88px;
@@ -57,3 +55,6 @@
     margin-right: 116px;
 }
   
+.icon-wrapper{
+  cursor: pointer;
+}

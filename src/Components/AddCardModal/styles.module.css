@@ -19,7 +19,7 @@
   opacity: 1;
   margin-top: 150px;
   width: 514px;
-  height: 379px;
+  
   
   
 }
@@ -71,6 +71,7 @@
   margin-left: 256px;
   gap: 20px;
   display: flex;
+  margin-bottom: 10px;
   
 }
 
@@ -86,6 +87,7 @@
   opacity: 1;
   outline: none;
   border: none;
+  cursor: pointer;
 
 }
 
@@ -98,6 +100,7 @@
   padding: 13px 18px 13px 18px;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 hr {
   width: 427px;

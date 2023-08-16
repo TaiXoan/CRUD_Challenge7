@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
 import Header from '../Header/Header';
-const AddCardModal = () => {
+
+const AddCardModal = ({closeModal}) => {
 
     return (
-        <>
-            <Header />
+        
             <div className={styles.modal}>
                 <div className={styles.addcard}>
                     <div className={styles.cardtitle}>Add New Card</div>
@@ -44,8 +44,8 @@ const AddCardModal = () => {
                         </div>
                         <hr />
                         <div className={styles.btn}>
-                            <button className={styles.deletebtn}>Delete</button>
-                            <button className={styles.cancelbtn}>Cancel</button>
+                            <button className={styles.deletebtn}>Save</button>
+                            <button className={styles.cancelbtn} onClick={closeModal}>Cancel</button>
                         </div>
 
                     </div>
@@ -53,7 +53,7 @@ const AddCardModal = () => {
                 </div>
             </div>
 
-        </>
+        
 
     );
 }

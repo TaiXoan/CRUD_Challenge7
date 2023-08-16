@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
-import Header from '../Header/Header';
-const TrashModal = () => {
+const TrashModal = ({closeModal}) => {
 
     return (
-        <>
-            <Header />
+        
             <div className={styles.trash}>
                 <div className={styles.trashtitle}>
                     <div className={styles.trashsubtitle}>
@@ -16,13 +14,13 @@ const TrashModal = () => {
                         <div className={styles.question}>Are you sure?</div></div>
                     <div className={styles.btn}>
                         <button className={styles.deletebtn}>Delete</button>
-                        <button className={styles.cancelbtn}>Cancel</button>
+                        <button className={styles.cancelbtn} onClick={ closeModal}>Cancel</button>
                     </div>
 
 
                 </div>
             </div>
-        </>
+        
     );
 }
 
