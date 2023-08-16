@@ -55,6 +55,7 @@
     opacity: 1;
     outline: none;
     border: none;
+    cursor: pointer;
 
 }
 
@@ -67,4 +68,5 @@
     padding: 13px 18px 13px 18px;
     outline: none;
     border: none;
+    cursor: pointer;
 }

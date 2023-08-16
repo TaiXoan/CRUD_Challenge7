@@ -39,6 +39,11 @@ class Modal extends Component {
                                 </div>
 
                                 <div className={styles.uploadfile}>Upload Image</div>
+
+                            </div>
+                            <div className={styles.btn}>
+                                <button className={styles.deletebtn}>Delete</button>
+                                <button className={styles.cancelbtn}>Cancel</button>
                             </div>
 
                         </div>
