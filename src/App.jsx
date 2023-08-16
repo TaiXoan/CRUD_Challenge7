@@ -12,7 +12,7 @@ const App = () => {
       
       <Routes>
         <Route path="/TrashModal" element={<TrashModal/>}/>
-        <Route path="/CardList" element={<CardList />} />
+        <Route path="/CardList" element={<CardList/>} />
         <Route path="/EmptyResults" element={<EmptyResults />} />
         <Route path="/AddCardModal" element={<AddCardModal />} />
         <Route path="/Detailpage" element={<DetailPage/>}/>
