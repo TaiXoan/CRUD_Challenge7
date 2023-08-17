@@ -6,11 +6,11 @@
   font: normal normal bold 20px/27px Segoe UI;
   margin-bottom: 40px;
 }
-.modal {
+/* .modal {
   display: flex;
   justify-content: center;
   
-}
+} */
 .addcard {
   background-color: #ffffff;
   background: #ffffff 0% 0% no-repeat padding-box;
@@ -18,7 +18,7 @@
   border: 1px solid #d2cbcb;
   border-radius: 10px;
   opacity: 1;
-  margin-top: 150px;
+  margin-top: 200px;
   width: 514px;
   
   
@@ -98,9 +98,7 @@
   outline: none;
   border: none;
   cursor: pointer;
-
 }
-
 .cancelbtn {
   background-color: #D9D9D9;
   background: #D9D9D9 0% 0% no-repeat padding-box;

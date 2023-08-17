@@ -8,14 +8,11 @@ const AddCardModal = ({ closeModal }) => {
         <div className={styles.modal}>
             <div className={styles.addcard}>
                 <div className={styles.cardtitle}>Add New Card</div>
-
                 <div className={styles.form}>
-
                     <div className={styles.fileupload}>
                         <div className={styles.avatar}>
                             <div>Avatar</div>
                             <div className={styles.star}>*</div>
-
                         </div>
                         <div className={styles['img']}>
                             <img className={styles.uploadsolid} src="Images/upload-solid.svg" alt="" />
