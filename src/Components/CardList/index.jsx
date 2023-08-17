@@ -34,6 +34,7 @@ const CardList = () => {
     return (
         <>
             <Header />
+            <a href="/Detail"></a>
             <div className={styles.formcard}>
                 <Modal
                     isOpen={modalIsOpen}
@@ -62,7 +63,7 @@ const CardList = () => {
                                 <div className={styles.name}>Phu </div>
                                 <div className={styles.date}>14/08/2023</div>
                             </div>
-                            
+
                             <div className={styles['icon-wrapper']}>
                                 <div className={styles.editicon}>
                                     <img
@@ -79,7 +80,7 @@ const CardList = () => {
                                     />
                                 </div>
                             </div>
-                          
+
                         </div>
                     </div>
                     <div className={styles.description}>

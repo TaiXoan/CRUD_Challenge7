@@ -3,6 +3,12 @@
   gap: 88px;
   margin: 52px;
   justify-content: center;
+  cursor: pointer;
+  
+}
+a{
+  text-decoration: none;
+  color: black;
 }
 
 .card-header {
@@ -66,12 +72,21 @@
       display: block;
   }
   .cat,.baby,.elephant{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
-  .navigation{
-    gap: 5px;
-    margin-top: 30px;
-    display: grid;
+
+
+.research{
+  padding: 20px;
+    flex-shrink: 0;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    border: none;
+    /* margin-left: 15px; */
+    outline: none;
 }
    
   }

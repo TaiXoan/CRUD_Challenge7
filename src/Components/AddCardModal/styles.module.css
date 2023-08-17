@@ -107,3 +107,33 @@ hr {
   margin-right: 84px;
   margin-bottom: 19px;
 }
+
+@media screen and (max-width: 768px) {
+    .modal{
+      display: block;
+      align-items: center;
+      
+    }
+    .name,.descriptionimage{
+     display: block;
+    }
+    .formfield{
+      margin-bottom: 10px;
+    }
+   hr{
+    margin-right: 145px;
+    margin-bottom: 19px;
+   }
+   .btn{
+   
+    margin-left: 90px;
+   }
+   .addcard{
+    width: 59%;
+
+   }
+   .input {
+    width: 276px;
+   }
+   
+  }
