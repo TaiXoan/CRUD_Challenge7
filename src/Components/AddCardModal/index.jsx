@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
-import Header from '../Header/Header';
 
 const AddCardModal = ({ closeModal }) => {
 
@@ -13,7 +12,11 @@ const AddCardModal = ({ closeModal }) => {
                 <div className={styles.form}>
 
                     <div className={styles.fileupload}>
-                        <div className={styles.avatar}>Avatar *</div>
+                        <div className={styles.avatar}>
+                            <div>Avatar</div>
+                            <div className={styles.star}>*</div>
+
+                        </div>
                         <div className={styles['img']}>
                             <img className={styles.uploadsolid} src="Images/upload-solid.svg" alt="" />
                         </div>
@@ -22,18 +25,24 @@ const AddCardModal = ({ closeModal }) => {
                     </div>
 
                     <div className={styles.name}>
-                        <div className={styles.formfield}>Name *</div>
+                        <div className={styles.formfield}>
+                            <div>Name </div>
+                            <div className={styles.star}>*</div>
+                        </div>
                         <input type="text" className={styles.input} />
                     </div>
 
 
                     <div className={styles.descriptionimage}>
-                        <div className={styles.formfield}>Description*</div>
+                        <div className={styles.formfield}>
+                            <div>Description</div>
+                            <div className={styles.star}>*</div>
+                        </div>
                         <input type="text" className={styles.input} />
                     </div>
 
                     <div className={styles.fileupload}>
-                        <div className={styles.avatar}>Avatar *</div>
+                        <div className={styles.avatar}>Image</div>
                         <div className={styles['img']}>
                             <img className={styles.uploadsolid} src="Images/upload-solid.svg" alt="" />
                         </div>

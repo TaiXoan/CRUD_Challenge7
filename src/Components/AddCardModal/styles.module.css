@@ -9,6 +9,7 @@
 .modal {
   display: flex;
   justify-content: center;
+  
 }
 .addcard {
   background-color: #ffffff;
@@ -19,6 +20,7 @@
   opacity: 1;
   margin-top: 150px;
   width: 514px;
+  
   
   
   
@@ -60,6 +62,14 @@
 }
 .formfield{
   margin-bottom: 20px;
+  display: flex;
+  gap: 2px;
+}
+.formfield .star{
+  color: #F3115E;
+}
+.avatar .star{
+  color: #F3115E;
 }
 .descriptionimage{
   gap: 15px;
@@ -107,7 +117,10 @@ hr {
   margin-right: 84px;
   margin-bottom: 19px;
 }
-
+.avatar{
+  display: flex;
+  gap: 2px;
+}
 @media screen and (max-width: 768px) {
     .modal{
       display: block;
@@ -119,17 +132,20 @@ hr {
     }
     .formfield{
       margin-bottom: 10px;
+    
     }
+    
    hr{
-    margin-right: 145px;
-    margin-bottom: 19px;
+   margin-right: 21px;
+   width: 284px;
+    
    }
    .btn{
    
     margin-left: 90px;
    }
    .addcard{
-    width: 59%;
+    width: 350px;
 
    }
    .input {
