@@ -120,3 +120,20 @@
   letter-spacing: 0px;
   color: #ffffff;
 }
+@media (max-width: 768px) {
+  .commentinput {
+    padding: 20px 112px 110px 71px
+  }
+  .detailContainer {
+    width: 340px;
+  }
+  .imgHue {
+    text-align: center;
+    margin-right: 849px;
+    width: 330px;
+  }
+  .posttext{
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}

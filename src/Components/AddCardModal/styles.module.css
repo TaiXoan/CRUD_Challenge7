@@ -28,11 +28,9 @@
 .fileupload {
   display: flex;
 }
-.descriptionimage {
-  display: flex;
-}
+
 .uploadfile {
-  margin-left: 11px;
+  margin-left: 10px;
   margin-bottom: 20px;
 }
 .input {
@@ -40,7 +38,6 @@
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   opacity: 1;
-  color: #d9d9d9;
   width: 322px;
   line-height: 35px;
   outline: none;
@@ -65,15 +62,16 @@
   color: #f3115e;
 }
 .descriptionimage {
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 20px;
+  display: flex;
 }
 
 .btn {
   margin-left: 256px;
   gap: 20px;
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .deletebtn {
@@ -132,6 +130,7 @@ hr {
   }
   .addcard {
     width: 350px;
+    margin-top:0 auto;
   }
   .input {
     width: 276px;

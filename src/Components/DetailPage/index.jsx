@@ -24,7 +24,7 @@ const DetailPage = () => {
                 accident, sometimes on purpose (injected humour and the like).
             </div>
             <div className={styles.image}>
-                <img src="./images/Hue.png" alt="" />
+                <img className={styles.imgHue} src="./images/Hue.png" alt="" />
             </div>
             <div className={styles.iconheartmess}>
                 <div className={styles.heart}>
