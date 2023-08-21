@@ -17,6 +17,7 @@ const customStyles = {
 };
 const Naba = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  
 
   function openModal() {
     setIsOpen(true);
@@ -33,7 +34,11 @@ const Naba = () => {
 
       </div>
       <div className={styles['search-bar']}>
-        <input type="text" name="" className={styles.research} placeholder="Search name" />
+        <input type="text"
+          name=""
+          className={styles.research}
+          placeholder="Search name" />
+
         <div className={styles['icon-search']}>
           <img src="Images/SearchIcon.svg" alt="" />
         </div>

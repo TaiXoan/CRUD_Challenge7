@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-
 import styles from './styles.module.css';
 
 const AddCardModal = ({ closeModal }) => {
@@ -59,10 +58,17 @@ const AddCardModal = ({ closeModal }) => {
                                 <div>Avatar</div>
                                 <div className={styles.star}>*</div>
                             </div>
+
+                            <div className={styles['img']}>
+                                <img className={styles.uploadsolid} src="Images/upload-solid.svg" alt="" />
+                            </div>
+                            <div className={styles.uploadfile}>Upload Image</div>
+
                             <div className={styles.img}>
                                 <input type="file" className={styles.uploadsolid} onChange={handleAvatarChange} />
                             </div>
-                            <div className={styles.uploadfile}>Upload Image</div>
+
+
                         </div>
 
                         <div className={styles.name}>
@@ -83,10 +89,17 @@ const AddCardModal = ({ closeModal }) => {
 
                         <div className={styles.fileupload}>
                             <div className={styles.avatar}>Image</div>
-                            <div className={styles.img}>
-                                <input type="file" className={styles.uploadsolid} onChange={handleImageChange} />
+
+                            <div className={styles['image']}>
+                                <img className={styles.uploadsolid} src="Images/upload-solid.svg" alt="" />
                             </div>
+
                             <div className={styles.uploadfile}>Upload Image</div>
+
+                            <div className={styles.img}>
+                                <input type="file" className={styles.uploadsolid} onChange={handleAvatarChange} />
+                            </div>
+
                             <div className={styles.line}></div>
                         </div>
                         <hr />

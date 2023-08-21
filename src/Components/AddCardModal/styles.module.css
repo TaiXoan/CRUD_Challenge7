@@ -30,7 +30,7 @@
 }
 
 .uploadfile {
-  margin-left: 10px;
+    position: relative;
   margin-bottom: 20px;
 }
 .input {
@@ -41,9 +41,19 @@
   width: 322px;
   line-height: 35px;
   outline: none;
+  
 }
-.uploadsolid {
-  margin-left: 46px;
+
+
+input.uploadsolid {
+position: absolute;
+    left: 164px;
+    opacity: 0;
+    cursor: pointer;
+}
+img.uploadsolid{
+  margin-right: 10px;
+  cursor: pointer;
 }
 .name {
   display: flex;
@@ -57,9 +67,11 @@
 }
 .formfield .star {
   color: #f3115e;
+
 }
 .avatar .star {
   color: #f3115e;
+  margin-right: 55px;
 }
 .descriptionimage {
   gap: 10px;
@@ -99,7 +111,7 @@
   border: none;
   cursor: pointer;
 }
-hr {
+.form  hr {
   width: 427px;
   margin-right: 84px;
   margin-bottom: 19px;
@@ -107,6 +119,9 @@ hr {
 .avatar {
   display: flex;
   gap: 2px;
+}
+.image{
+  margin-left: 60px;
 }
 @media screen and (max-width: 768px) {
   .modal {
@@ -130,7 +145,7 @@ hr {
   }
   .addcard {
     width: 350px;
-    margin-top:0 auto;
+    margin-top: 0 auto;
   }
   .input {
     width: 276px;

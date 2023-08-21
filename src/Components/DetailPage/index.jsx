@@ -1,7 +1,13 @@
-import React from "react";
-import styles from "./styles.module.css";
+import React, { useState } from 'react';
+import styles from './styles.module.css';
 
 const DetailPage = () => {
+    const [heartCount, setHeartCount] = useState(0);
+
+    const increaseHeartCount = () => {
+        setHeartCount(heartCount + 1);
+    };
+
     return (
         <div className={styles.detailContainer}>
             <div className={styles.title}>SOCIAL CARD DETAIL</div>
@@ -27,9 +33,9 @@ const DetailPage = () => {
                 <img className={styles.imgHue} src="./images/Hue.png" alt="" />
             </div>
             <div className={styles.iconheartmess}>
-                <div className={styles.heart}>
+                <div className={styles.heart} onClick={increaseHeartCount}>
                     <img src="./images/Heart-solid.svg" alt="" />
-                    <div className={styles.count}>2</div>
+                    <div className={styles.count}>{heartCount}</div>
                 </div>
                 <div className={styles.meseges}>
                     <img src="./images/Message-Solid.svg" alt="" />
@@ -74,4 +80,5 @@ const DetailPage = () => {
         </div>
     );
 };
+
 export default DetailPage;
