@@ -31,6 +31,7 @@ const CardList = () => {
             border: 'none'
         }
     };
+
     return (
         <>
             <Header />
@@ -183,15 +184,11 @@ const CardList = () => {
                             Next, you select one property. It doesn’t matter which one you choose, yet
                             it’s best to pick one that seems totally unrelated to your challenge.
                         </div>
-
                         <img className={styles.elephant} src="Images/Elephant.svg" alt="" />
                     </a>
                 </div>
             </div>
-
         </>
-
-
     );
 }
 

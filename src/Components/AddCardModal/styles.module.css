@@ -30,7 +30,7 @@
 }
 
 .uploadfile {
-    position: relative;
+  position: relative;
   margin-bottom: 20px;
 }
 .input {
@@ -41,17 +41,15 @@
   width: 322px;
   line-height: 35px;
   outline: none;
-  
 }
-
 
 input.uploadsolid {
-position: absolute;
-    left: 164px;
-    opacity: 0;
-    cursor: pointer;
+  position: absolute;
+  margin-left: -120px;
+  opacity: 0;
+  cursor: pointer;
 }
-img.uploadsolid{
+img.uploadsolid {
   margin-right: 10px;
   cursor: pointer;
 }
@@ -67,7 +65,6 @@ img.uploadsolid{
 }
 .formfield .star {
   color: #f3115e;
-
 }
 .avatar .star {
   color: #f3115e;
@@ -111,7 +108,7 @@ img.uploadsolid{
   border: none;
   cursor: pointer;
 }
-.form  hr {
+.form hr {
   width: 427px;
   margin-right: 84px;
   margin-bottom: 19px;
@@ -120,7 +117,7 @@ img.uploadsolid{
   display: flex;
   gap: 2px;
 }
-.image{
+.image {
   margin-left: 60px;
 }
 @media screen and (max-width: 768px) {

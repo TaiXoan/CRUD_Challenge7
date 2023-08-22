@@ -10,6 +10,15 @@
 .meseges {
   display: flex;
   gap: 5px;
+  position: relative;
+}
+.heart{
+  position: relative;
+  cursor: pointer;
+}
+.meseges{
+  position: absolute;
+  margin-left: 55px;
 }
 .detailContainer {
   width: 1160px;
@@ -43,7 +52,7 @@
   font: normal normal 600 18px/24px Segoe UI;
   margin-bottom: 5px;
 }
-.birtday {
+.commentdate {
   font: normal normal normal 15px/20px Segoe UI;
 }
 .generaldescription {
@@ -87,21 +96,25 @@
 }
 .posttext {
   font: normal normal 600 18px/24px Segoe UI;
-  margin-left: 143px;
+  margin-left: 178px;
   margin-bottom: 15px;
 }
 .formcontent {
   display: flex;
   justify-content: center;
+  
 }
-.formcontent input {
+.formcontent textarea {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   outline: none;
+  box-sizing: border-box;
+  width: 800px;
 }
-.commentinput {
-  padding: 20px 690px 113px 20px;
+.commentTexarea {
+  padding: 20px 0px 113px 20px;
+  overflow-wrap: break-word;
 }
 .commentinput::placeholder {
   font: normal normal normal 13px/17px Segoe UI;
@@ -120,9 +133,14 @@
   letter-spacing: 0px;
   color: #ffffff;
 }
+
+form button{
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .commentinput {
-    padding: 20px 112px 110px 71px
+    padding: 20px 2px 110px 71px
   }
   .detailContainer {
     width: 340px;
