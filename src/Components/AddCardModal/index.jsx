@@ -47,6 +47,7 @@ const AddCardModal = ({ closeModal }) => {
         console.log(urls);
     };
 
+    
     return (
         <form onSubmit={handleSubmit}>
             <div className={styles.modal}>
@@ -67,8 +68,6 @@ const AddCardModal = ({ closeModal }) => {
                             <div className={styles.img}>
                                 <input type="file" className={styles.uploadsolid} onChange={handleAvatarChange} />
                             </div>
-
-
                         </div>
 
                         <div className={styles.name}>
