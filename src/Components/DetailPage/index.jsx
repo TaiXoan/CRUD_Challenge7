@@ -7,7 +7,7 @@ const DetailPage = () => {
   const [messageCount, setMessageCount] = useState(0);
   const [comments, setComments] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const sortedComments = comments.slice().reverse();
   // localStorage.clear();
   useEffect(() => {
     const storedHeartCount = localStorage.getItem('heartCount');
@@ -66,6 +66,7 @@ const DetailPage = () => {
     setMessageCount(messageCount + 1);
     event.target.comment.value = '';
   };
+ 
 
   return (
     <div className={styles.detailContainer}>
@@ -102,7 +103,7 @@ const DetailPage = () => {
         </div>
       </div>
       <div className={styles.line}></div>
-      {comments.map((comment, index) => (
+      {sortedComments.map((comment, index) => (
         <div className={styles.comments} key={index}>
           <div className={styles.day}>{comment.date}</div>
           <div className={styles.commentcontent}>{comment.content}</div>

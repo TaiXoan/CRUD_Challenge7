@@ -17,7 +17,7 @@
   border: 1px solid #d2cbcb;
   border-radius: 10px;
   opacity: 1;
-  margin-top: 200px;
+  margin-top: 120px;
   width: 514px;
 }
 .form {
@@ -116,7 +116,7 @@ img.uploadsolid {
 .avatar {
   display: flex;
   gap: 2px;
-  color: red;
+  color: #F3115E;
 }
 .image {
   margin-left: 60px;
@@ -124,12 +124,13 @@ img.uploadsolid {
 /* Thay đổi màu đỏ cho ảnh */
 .img img:not(.uploadsolid),
 .image img:not(.uploadsolid) {
-  border: 2px solid red;
+  border: 2px solid #F3115E;
 }
 
 
 .uploadfile {
-  color: red;
+  color: #F3115E;
+
 }
 
 .img img.uploadsolid,
@@ -137,10 +138,16 @@ img.uploadsolid {
   filter: invert(33%) sepia(94%) saturate(7458%) hue-rotate(337deg) brightness(102%) contrast(103%);
 }
 
+.inputError {
+  border-color: red;
+}
 
-
-
-
+.input{
+  border: 1px solid #F3115E ;
+}
+.formfield div{
+  color: #F3115E;
+}
 
 @media screen and (max-width: 768px) {
   .modal {
