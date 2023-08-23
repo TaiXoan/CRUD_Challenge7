@@ -3,63 +3,57 @@ import axios from 'axios';
 import styles from './styles.module.css';
 
 const AddCardModal = ({ closeModal }) => {
-    const [avatarFile, setAvatarFile] = useState(null);
-    const [imageFile, setImageFile] = useState(null);
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
+  const [avatarFile, setAvatarFile] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
 
+  const [nameError, setNameError] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
 
-    const [nameError, setNameError] = useState(false);
-    const [descriptionError, setDescriptionError] = useState(false);
+  const handleAvatarChange = (e) => {
+    setAvatarFile(e.target.files[0]);
+  };
 
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
 
-    const handleAvatarChange = (e) => {
-        setAvatarFile(e.target.files[0]);
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!name) {
+      setNameError(true);
+    }
+    if (!description) {
+      setDescriptionError(true);
+    }
 
-    const handleImageChange = (e) => {
-        setImageFile(e.target.files[0]);
-    };
+    const CLOUD_NAME = "dfswkp2bn";
+    const PRESET_NAME = "ArtGallery";
+    const FOLDER_NAME = "ArtGallery";
+    const urls = [];
+    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const formData = new FormData();
+    formData.append("upload_preset", PRESET_NAME);
+    formData.append("folder", FOLDER_NAME);
+    formData.append("file", avatarFile);
+    formData.append("file", imageFile);
 
-        // Kiểm tra điều kiện và cập nhật trạng thái
-        if (!name) {
-            setNameError(true);
-        }
-        if (!description) {
-            setDescriptionError(true);
-        }
+    try {
+      const response = await axios.post(api, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+      });
 
-        const CLOUD_NAME = "dfswkp2bn";
-        const PRESET_NAME = "ArtGallery";
-        const FOLDER_NAME = "ArtGallery";
-        const urls = [];
-        const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
-
-        const formData = new FormData();
-        formData.append("upload_preset", PRESET_NAME);
-        formData.append("folder", FOLDER_NAME);
-
-        if (avatarFile) {
-            formData.append("file", avatarFile);
-        }
-
-        if (imageFile) {
-            formData.append("file", imageFile);
-        }
-
-        const response = await axios.post(api, formData, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            },
-        });
-
-        urls.push(response.data.secure_url);
-        console.log(urls);
-    };
-
+      // Xử lý response thành công
+      console.log(response.data);
+    } catch (error) {
+      // Xử lý lỗi
+      console.error(error);
+    }
+  };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -68,8 +62,8 @@ const AddCardModal = ({ closeModal }) => {
                     <div className={styles.cardtitle}>Add New Card</div>
                     <div className={styles.form}>
                         <div className={styles.fileupload}>
-                            <div className={styles.avatar}>
-                                <div>Avatar</div>
+                            <div className={`${styles.avatar} ${nameError ? styles.erroravatar : ''}`}>
+                                <div>Avartar</div>
                                 <div className={styles.star}>*</div>
                             </div>
 
@@ -78,25 +72,50 @@ const AddCardModal = ({ closeModal }) => {
                             </div>
                             <div className={styles.uploadfile}>Upload Image</div>
 
+
                             <div className={styles.img}>
                                 <input type="file" className={styles.uploadsolid} onChange={handleAvatarChange} />
                             </div>
+
+
                         </div>
 
                         <div className={styles.name}>
-                            <div className={styles.formfield}>
+                            <div className={`${styles.formfield} ${nameError ? styles.error : ''}`}>
                                 <div>Name</div>
                                 <div className={styles.star}>*</div>
                             </div>
-                            <input type="text" className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
+<input
+                                type="text"
+                                className={`${styles.input} ${nameError ? styles.error : ''}`}
+                                value={name}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                    if (nameError) {
+                                        setNameError(false); // Đặt lại trạng thái lỗi khi người dùng thay đổi giá trị
+                                    }
+                                }}
+                            />
                         </div>
 
                         <div className={styles.descriptionimage}>
-                            <div className={styles.formfield}>
+                            <div className={`${styles.formfield} ${descriptionError ? styles.error : ''}`}>
                                 <div>Description</div>
                                 <div className={styles.star}>*</div>
                             </div>
-                            <input type="text" className={styles.input} value={description} onChange={(e) => setDescription(e.target.value)} />
+
+                            <input
+                                type="text"
+                                className={`${styles.input} ${descriptionError ? styles.error : ''}`}
+                                value={description}
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                    if (descriptionError) {
+                                        setDescriptionError(false); // Đặt lại trạng thái lỗi khi người dùng thay đổi giá trị
+                                    }
+                                }}
+                            />
+
                         </div>
 
                         <div className={styles.fileupload}>
@@ -116,7 +135,7 @@ const AddCardModal = ({ closeModal }) => {
                         </div>
                         <hr />
                         <div className={styles.btn}>
-                            <button type="submit" className={styles.deletebtn}>Save</button>
+                            <button type="submit" className={styles.savebtn} onClick={handleSubmit}>Save</button>
                             <button className={styles.cancelbtn} onClick={closeModal}>Cancel</button>
                         </div>
                     </div>

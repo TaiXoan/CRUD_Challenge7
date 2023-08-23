@@ -17,7 +17,7 @@
   border: 1px solid #d2cbcb;
   border-radius: 10px;
   opacity: 1;
-  margin-top: 120px;
+  margin-top: 200px;
   width: 514px;
 }
 .form {
@@ -83,7 +83,7 @@ img.uploadsolid {
   margin-bottom: 25px;
 }
 
-.deletebtn {
+.savebtn {
   background-color: #064ebc;
   font: normal normal bold 13px/17px Segoe UI;
   letter-spacing: 0px;
@@ -116,7 +116,7 @@ img.uploadsolid {
 .avatar {
   display: flex;
   gap: 2px;
-  color: #F3115E;
+  color: red;
 }
 .image {
   margin-left: 60px;
@@ -124,13 +124,12 @@ img.uploadsolid {
 /* Thay đổi màu đỏ cho ảnh */
 .img img:not(.uploadsolid),
 .image img:not(.uploadsolid) {
-  border: 2px solid #F3115E;
+  border: 2px solid red;
 }
 
 
 .uploadfile {
-  color: #F3115E;
-
+  color: red;
 }
 
 .img img.uploadsolid,
@@ -138,15 +137,14 @@ img.uploadsolid {
   filter: invert(33%) sepia(94%) saturate(7458%) hue-rotate(337deg) brightness(102%) contrast(103%);
 }
 
-.inputError {
-  border-color: red;
+
+
+.error{
+  color: #f3115e;
 }
 
-.input{
-  border: 1px solid #F3115E ;
-}
-.formfield div{
-  color: #F3115E;
+.error {
+  border-color: red;
 }
 
 @media screen and (max-width: 768px) {
