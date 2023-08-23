@@ -8,6 +8,9 @@ const AddCardModal = ({ closeModal }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
 
+    const [nameError, setNameError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
+
     const handleAvatarChange = (e) => {
         setAvatarFile(e.target.files[0]);
     };
@@ -18,6 +21,14 @@ const AddCardModal = ({ closeModal }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+            // Kiểm tra điều kiện và cập nhật trạng thái
+            if (!name) {
+                setNameError(true);
+            }
+            if (!description) {
+                setDescriptionError(true);
+            }
 
         const CLOUD_NAME = "dfswkp2bn";
         const PRESET_NAME = "ArtGallery";
@@ -47,7 +58,7 @@ const AddCardModal = ({ closeModal }) => {
         console.log(urls);
     };
 
-    
+
     return (
         <form onSubmit={handleSubmit}>
             <div className={styles.modal}>

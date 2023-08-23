@@ -116,10 +116,32 @@ img.uploadsolid {
 .avatar {
   display: flex;
   gap: 2px;
+  color: red;
 }
 .image {
   margin-left: 60px;
 }
+/* Thay đổi màu đỏ cho ảnh */
+.img img:not(.uploadsolid),
+.image img:not(.uploadsolid) {
+  border: 2px solid red;
+}
+
+
+.uploadfile {
+  color: red;
+}
+
+.img img.uploadsolid,
+.image img.uploadsolid {
+  filter: invert(33%) sepia(94%) saturate(7458%) hue-rotate(337deg) brightness(102%) contrast(103%);
+}
+
+
+
+
+
+
 @media screen and (max-width: 768px) {
   .modal {
     display: block;
