@@ -1,215 +1,159 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './styles.module.css';
 import Header from '../Header/Header';
 import Modal from "react-modal";
 import AddCardModal from '../AddCardModal';
 import TrashModal from '../TrashModal';
 import { getData, getLocalData } from "../Data";
+import { format } from 'date-fns';
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    padding: "0px",
+    border: "none",
+    boxShadow: "none",
+    background: "none",
+  },
+};
+
 const CardList = () => {
-    const data = getData();
-    const dataLocal = getLocalData();
-    console.log(dataLocal);
-    // Convert localData object to an array
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-    const [modalDeleteIsOpen, setModalDeleteIsOpen] = React.useState(false); // Add state for delete modal
+  const data = getData();
+  const dataLocal = getLocalData();
 
-    function openModal() {
-        setIsOpen(true);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalDeleteIsOpen, setModalDeleteIsOpen] = useState(false);
+  const [deleteIndex, setDeleteIndex] = useState(null);
+  const [formData, setFormData] = useState({ description: '', img: '' });
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const openDeleteModal = () => {
+    setModalDeleteIsOpen(true);
+  };
+
+  const closeDeleteModal = () => {
+    setModalDeleteIsOpen(false);
+  };
+
+  const handleDeleteContent = async (index) => {
+    const newDataLocal = [...dataLocal];
+    newDataLocal.splice(index, 1);
+
+    localStorage.setItem("cardData", JSON.stringify(newDataLocal));
+    setDeleteIndex(newDataLocal);
+    closeDeleteModal();
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    if (formData.description && formData.img) {
+      const currentData = getLocalData() || [];
+      const newData = [...currentData, formData];
+
+      try {
+        localStorage.setItem('cardData', JSON.stringify(newData));
+        closeModal();
+      } catch (error) {
+        console.log('Error saving data to local storage:', error);
+      }
+    } else {
+      console.log('Vui lòng nhập đầy đủ thông tin');
     }
+  };
 
-    function closeModal() {
-        setIsOpen(false);
-    }
+  return (
+    <>
+      <Header />
 
-    function openDeleteModal() {
-        setModalDeleteIsOpen(true);
-    }
+      <div className={styles.formcard}>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel='Example Modal'
+        >
+          <AddCardModal
+            closeModal={closeModal}
+            handleChange={handleChange}
+            handleSave={handleSave}
+          />
+        </Modal>
 
-    function closeDeleteModal() {
-        setModalDeleteIsOpen(false);
-    }
-    const [deleteIndex, setDeleteIndex] = React.useState(null);
-    const handleDeleteContent = async (index) => {
-        // Tạo bản sao của mảng dataLocal để không ảnh hưởng trực tiếp đến state
-        const newDataLocal = [...dataLocal];
-        newDataLocal.splice(index, 1); // Xóa nội dung tại chỉ mục index
-
-        // Cập nhật Local Storage với mảng newDataLocal
-        localStorage.setItem("cardData", JSON.stringify(newDataLocal));
-
-        // Cập nhật state dataLocal để gây hiển thị lại trang
-        setDeleteIndex(newDataLocal);
-
-        // Đóng modal sau khi thực hiện xóa
-        closeDeleteModal();
-    };
-    const customStyles = {
-        content: {
-            padding: '0',
-            background: 'none',
-            border: 'none'
-        }
-    };
-
-    return (
-        <>
-            <Header />
-
-
-            <div className={styles.formcard}>
-                <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    contentLabel='Example Modal'
-                >
-                    <AddCardModal closeModal={closeModal}></AddCardModal>
-                </Modal>
-
-                <Modal
-                    isOpen={modalDeleteIsOpen}
-                    onRequestClose={closeDeleteModal}
-                    style={customStyles}
-                    contentLabel='Delete Modal'
-                >
-                    <TrashModal closeModal={closeDeleteModal}></TrashModal>
-                </Modal>
-
-
-                <div className={styles['card-container']}>
-                    <div className={styles['card-header']}>
-                        <div className={styles['profile-image']}>
-                            <img src="Images/Phu.svg" alt="" />
-                        </div>
-                        <div className={styles['header-content']}>
-                            <a href="/DetailPage">
-                                <div className={styles['name-date-container']}>
-                                    <div className={styles.name}>Phu </div>
-                                    <div className={styles.date}>14/08/2023</div>
-                                </div>
-                            </a>
-                            <div className={styles['icon-wrapper']}>
-                                <div className={styles.editicon}>
-                                    <img
-                                        onClick={openModal}
-                                        src='Images/EditIcon.svg'
-                                        alt='Edit'
-                                    />
-                                </div>
-                                <div className={styles.DeleteIcon}>
-                                    <img
-                                        onClick={openDeleteModal}
-                                        src='Images/DeleteIcon.svg'
-                                        alt='Delete'
-                                    />
-                                </div>
-                            </div>
-
-                        </div>
+        {data.map((item, index) => (
+          <div className={styles['card-container']} key={index}>
+            <div className={styles['card-header']}>
+              <div className={styles['profile-image']}>
+                <img
+                  src={item.profile}
+                  alt={item.name}
+                />
+              </div>
+              <div className={styles['header-content']}>
+                <a href="/DetailPage">
+                  <div className={styles['name-date-container']}>
+                    <div className={styles.name}>{item.name}</div>
+                    <div className={styles.date}>
+                      {format(new Date(), "dd/MM/yyyy")}
                     </div>
-                    <a href="/DetailPage">
-                        <div className={styles.description}>
-                            It is a long established fact that a reader will be distracted by the
-                            readable content of a page when looking at its layout.
-                        </div>
-                        <img className={styles.cat} src="Images/Cat.svg" alt="" />
-                    </a>
+                  </div>
+                </a>
+                <div className={styles['icon-wrapper']}>
+                  <div className={styles.editicon}>
+                    <img
+                      onClick={openModal}
+                      src='Images/EditIcon.svg'
+                      alt='Edit'
+                    />
+                  </div>
+                  <div className={styles.DeleteIcon}>
+                    <img
+                      onClick={openDeleteModal}
+                      src='Images/DeleteIcon.svg'
+                      alt='Delete'
+                    />
+                  </div>
                 </div>
-
-                <div className={styles['card-container']}>
-                    <div className={styles['card-header']}>
-                        <div className={styles['profile-image']}>
-                            <img src="Images/Music.svg" alt="" />
-                        </div>
-                        <div
-                            className={styles['card-container']}
-                            onClick={() => {
-                                window.location.href = "/DetailPage";
-                            }}
-                        ></div>
-                        <div className={styles['header-content']}>
-                            <div className={styles['name-date-container']}>
-                                <a href="/DetailPage">
-                                    <div className={styles.name}>Vanre</div>
-                                    <div className={styles.date}>14/08/2023</div>
-                                </a>
-                            </div>
-
-
-
-                            <div className={styles['icon-wrapper']}>
-                                <div className={styles.EditIcon}>
-                                    <img
-                                        onClick={openModal}
-                                        src='Images/EditIcon.svg'
-                                        alt='Edit'
-                                    />
-                                </div>
-                                <div className={styles.DeleteIcon}>
-                                    <img
-                                        onClick={openDeleteModal}
-                                        src='Images/DeleteIcon.svg'
-                                        alt='Delete'
-                                    />
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <a href="/DetailPage">
-                        <div className={styles.description}>
-                            Lập một form để tạo mới 1 Social Card , trong card sẽ chứa các thông tin:
-                            Avatar, Name, Description, Image
-                        </div>
-
-
-                        <img className={styles.baby} src="Images/Baby.svg" alt="" />
-                    </a>
-
-                </div>
-                <div className={styles['card-container']}>
-                    <div className={styles['card-header']}>
-                        <div className={styles['profile-image']}>
-                            <img src="Images/Micro.svg" alt="" />
-                        </div>
-                        <div className={styles['header-content']}>
-                            <div className={styles['name-date-container']}>
-                                <a href="/DetailPage">
-                                    <div className={styles.name}>Mio</div>
-                                    <div className={styles.date}>14/08/2023</div>
-                                </a>
-                            </div>
-                            <div className={styles['icon-wrapper']}>
-                                <div className={styles.EditIcon}>
-                                    <img
-                                        onClick={openModal}
-                                        src='Images/EditIcon.svg'
-                                        alt='Edit'
-                                    />
-                                </div>
-                                <div className={styles.DeleteIcon}>
-                                    <img
-                                        onClick={openDeleteModal}
-                                        src='Images/DeleteIcon.svg'
-                                        alt='Delete'
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="/DetailPage">
-                        <div className={styles.description}>
-                            Next, you select one property. It doesn’t matter which one you choose, yet
-                            it’s best to pick one that seems totally unrelated to your challenge.
-                        </div>
-                        <img className={styles.elephant} src="Images/Elephant.svg" alt="" />
-                    </a>
-                </div>
+              </div>
             </div>
-        </>
-    );
-}
-
+            <a href="/DetailPage">
+              <div
+                className={`${styles.description} ${
+                  index === 2 ? styles.DescriptionMio : ""
+                }`}
+              >
+                {item.description}
+              </div>
+              <div className={styles.img}>
+                <img
+                  src={item.img}
+                  alt='Image'
+                />
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
 
 export default CardList;

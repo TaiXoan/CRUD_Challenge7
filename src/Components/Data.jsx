@@ -6,29 +6,29 @@ export function getLocalData() {
 export function getData() {
   return [
     {
-      Name: "Phu Nguyen",
+      name: "Phu Nguyen",
       date: "14/08/2023",
-      Profile: "Images/Nguyen-img.svg",
-      Description:
+      profile: "Images/Phu.svg",
+      description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      img: "Images/NguyenContent-img.svg",
+      img: "Images/cat.svg",
     },
     {
-      Name: "Varen",
+      name: "Varen",
       date: "14/08/2023",
-      Profile: "Images/Varen-profile.svg",
-      Description:
+      profile: "Images/Micro.svg",
+      description:
         "Lập một form để tạo mới 1 Social Card , trong card sẽ chứa các thông tin: Avatar, Name, Description, Image.",
-      img: "Images/Varen-img.svg",
+      img: "Images/Baby.svg",
     },
 
     {
-      Name: "Mio",
+      name: "Mio",
       date: "14/08/2023",
-      Profile: "Images/Mio-profile.svg",
-      Description:
+      profile: "Images/Music.svg",
+      description:
         "Next, you select one property. It doesn’t matter which one you choose, yet it’s best to pick one that seems totally unrelated to your challenge..",
-      img: "Images/Mio-img.svg",
+      img: "Images/Elephant.svg",
     },
   ];
 }
