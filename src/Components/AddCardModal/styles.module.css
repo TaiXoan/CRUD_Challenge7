@@ -116,7 +116,7 @@ img.uploadsolid {
 .avatar {
   display: flex;
   gap: 2px;
-  color: red;
+  color: #f3115e;
 }
 .image {
   margin-left: 60px;
@@ -124,27 +124,25 @@ img.uploadsolid {
 /* Thay đổi màu đỏ cho ảnh */
 .img img:not(.uploadsolid),
 .image img:not(.uploadsolid) {
-  border: 2px solid red;
+  border: 2px solid #f3115e;
 }
 
 
 .uploadfile {
-  color: red;
+  color: #f3115e;
 }
 
 .img img.uploadsolid,
 .image img.uploadsolid {
   filter: invert(33%) sepia(94%) saturate(7458%) hue-rotate(337deg) brightness(102%) contrast(103%);
-}
-
-
+} 
 
 .error{
   color: #f3115e;
 }
 
 .error {
-  border-color: red;
+  border-color: #f3115e;
 }
 
 @media screen and (max-width: 768px) {

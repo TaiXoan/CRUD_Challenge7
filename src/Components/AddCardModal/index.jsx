@@ -37,11 +37,12 @@ const AddCardModal = ({ closeModal }) => {
     const formData = new FormData();
     formData.append("upload_preset", PRESET_NAME);
     formData.append("folder", FOLDER_NAME);
-    formData.append("file", avatarFile);
-    formData.append("file", imageFile);
+  
 
     try {
+        formData.append("file", imageFile);
       const response = await axios.post(api, formData, {
+
         headers: {
           "Content-Type": "multipart/form-data"
         },
@@ -68,13 +69,14 @@ const AddCardModal = ({ closeModal }) => {
                             </div>
 
                             <div className={styles['img']}>
-                                <img className={styles.uploadsolid} src="Images/upload-solid.svg" alt="" />
+                             <img className={styles.uploadsolid} src={ "Images/upload-solid.svg"} alt="" />
                             </div>
                             <div className={styles.uploadfile}>Upload Image</div>
 
 
                             <div className={styles.img}>
-                                <input type="file" className={styles.uploadsolid} onChange={handleAvatarChange} />
+                                
+                                <input type="file" className={styles.uploadsolid} onChange={handleImageChange} />
                             </div>
 
 
