@@ -45,7 +45,7 @@
 
 input.uploadsolid {
   position: absolute;
-  margin-left: -120px;
+  margin-left: -140px;
   opacity: 0;
   cursor: pointer;
 }
@@ -116,7 +116,7 @@ img.uploadsolid {
 .avatar {
   display: flex;
   gap: 2px;
-  color: #f3115e;
+  /* color: #f3115e; */
 }
 .image {
   margin-left: 60px;
@@ -127,17 +127,22 @@ img.uploadsolid {
   border: 2px solid #f3115e;
 }
 
-
-.uploadfile {
+/* .uploadfile {
   color: #f3115e;
 }
 
 .img img.uploadsolid,
 .image img.uploadsolid {
   filter: invert(33%) sepia(94%) saturate(7458%) hue-rotate(337deg) brightness(102%) contrast(103%);
-} 
+}  */
+/* .erroravatar {
+  color: red;
+} */
 
-.error{
+.error {
+  color: red;
+}
+.error {
   color: #f3115e;
 }
 

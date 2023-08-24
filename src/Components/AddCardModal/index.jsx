@@ -3,59 +3,69 @@ import axios from 'axios';
 import styles from './styles.module.css';
 
 const AddCardModal = ({ closeModal }) => {
-  const [avatarFile, setAvatarFile] = useState(null);
-  const [imageFile, setImageFile] = useState(null);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+    const [avatarFile, setAvatarFile] = useState(null);
+    const [imageFile, setImageFile] = useState(null);
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
 
-  const [nameError, setNameError] = useState(false);
-  const [descriptionError, setDescriptionError] = useState(false);
+    const [nameError, setNameError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
 
-  const handleAvatarChange = (e) => {
-    setAvatarFile(e.target.files[0]);
-  };
 
-  const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
-  };
+    const handleAvatarChange = (e) => {
+        setAvatarFile(e.target.files[0]);
+    };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!name) {
-      setNameError(true);
-    }
-    if (!description) {
-      setDescriptionError(true);
-    }
+    const handleImageChange = (e) => {
+        setImageFile(e.target.files[0]);
+    };
 
-    const CLOUD_NAME = "dfswkp2bn";
-    const PRESET_NAME = "ArtGallery";
-    const FOLDER_NAME = "ArtGallery";
-    const urls = [];
-    const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
-
-    const formData = new FormData();
-    formData.append("upload_preset", PRESET_NAME);
-    formData.append("folder", FOLDER_NAME);
-  
-
-    try {
-        formData.append("file", imageFile);
-      const response = await axios.post(api, formData, {
-
-        headers: {
-          "Content-Type": "multipart/form-data"
-        },
-      });
-
-      // Xử lý response thành công
-      console.log(response.data);
-    } catch (error) {
-      // Xử lý lỗi
-      console.error(error);
-    }
-  };
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!name) {
+          setNameError(true);
+        }
+        if (!description) {
+          setDescriptionError(true);
+        }
+      
+        if (imageFile) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            localStorage.setItem("image", reader.result);
+          };
+          reader.readAsDataURL(imageFile);
+        }
+      
+        // Save other form data to local storage
+        localStorage.setItem("name", name);
+        localStorage.setItem("description", description);
+      
+        const CLOUD_NAME = "dfswkp2bn";
+        const PRESET_NAME = "ArtGallery";
+        const FOLDER_NAME = "ArtGallery";
+        const urls = [];
+        const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+      
+        const formData = new FormData();
+        formData.append("upload_preset", PRESET_NAME);
+        formData.append("folder", FOLDER_NAME);
+      
+        try {
+          formData.append("file", imageFile);
+          const response = await axios.post(api, formData, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            },
+          });
+      
+          // Xử lý response thành công
+          console.log(response.data);
+        } catch (error) {
+          // Xử lý lỗi
+          console.error(error);
+        }
+      };
     return (
         <form onSubmit={handleSubmit}>
             <div className={styles.modal}>
@@ -69,13 +79,12 @@ const AddCardModal = ({ closeModal }) => {
                             </div>
 
                             <div className={styles['img']}>
-                             <img className={styles.uploadsolid} src={ "Images/upload-solid.svg"} alt="" />
+                                <img className={styles.uploadsolid} src={"Images/upload-solid.svg"} alt="" />
                             </div>
                             <div className={styles.uploadfile}>Upload Image</div>
 
 
                             <div className={styles.img}>
-                                
                                 <input type="file" className={styles.uploadsolid} onChange={handleImageChange} />
                             </div>
 
@@ -87,7 +96,7 @@ const AddCardModal = ({ closeModal }) => {
                                 <div>Name</div>
                                 <div className={styles.star}>*</div>
                             </div>
-<input
+                            <input
                                 type="text"
                                 className={`${styles.input} ${nameError ? styles.error : ''}`}
                                 value={name}

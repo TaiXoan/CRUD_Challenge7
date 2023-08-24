@@ -4,8 +4,12 @@ import Header from '../Header/Header';
 import Modal from "react-modal";
 import AddCardModal from '../AddCardModal';
 import TrashModal from '../TrashModal';
-
+import { getData, getLocalData } from "../Data";
 const CardList = () => {
+    const data = getData();
+    const dataLocal = getLocalData();
+    console.log(dataLocal);
+    // Convert localData object to an array
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [modalDeleteIsOpen, setModalDeleteIsOpen] = React.useState(false); // Add state for delete modal
 
@@ -24,6 +28,21 @@ const CardList = () => {
     function closeDeleteModal() {
         setModalDeleteIsOpen(false);
     }
+    const [deleteIndex, setDeleteIndex] = React.useState(null);
+    const handleDeleteContent = async (index) => {
+        // Tạo bản sao của mảng dataLocal để không ảnh hưởng trực tiếp đến state
+        const newDataLocal = [...dataLocal];
+        newDataLocal.splice(index, 1); // Xóa nội dung tại chỉ mục index
+
+        // Cập nhật Local Storage với mảng newDataLocal
+        localStorage.setItem("cardData", JSON.stringify(newDataLocal));
+
+        // Cập nhật state dataLocal để gây hiển thị lại trang
+        setDeleteIndex(newDataLocal);
+
+        // Đóng modal sau khi thực hiện xóa
+        closeDeleteModal();
+    };
     const customStyles = {
         content: {
             padding: '0',
