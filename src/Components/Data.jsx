@@ -30,5 +30,6 @@ export function getData() {
         "Next, you select one property. It doesn’t matter which one you choose, yet it’s best to pick one that seems totally unrelated to your challenge..",
       img: "Images/Elephant.svg",
     },
+    
   ];
 }

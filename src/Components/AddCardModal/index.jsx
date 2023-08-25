@@ -3,25 +3,27 @@ import axios from 'axios';
 import styles from './styles.module.css';
 
 const AddCardModal = ({ closeModal }) => {
-    const [avatarFile, setAvatarFile] = useState(null);
-    const [imageFile, setImageFile] = useState(null);
+    
+    const [avatar,setAvatar]=useState("")
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [image,setImage]=useState("")
 
     const [nameError, setNameError] = useState(false);
     const [descriptionError, setDescriptionError] = useState(false);
 
 
     const handleAvatarChange = (e) => {
-        setAvatarFile(e.target.files[0]);
+        setAvatar(e.target.files[0]);
     };
 
     const handleImageChange = (e) => {
-        setImageFile(e.target.files[0]);
+        setImage(e.target.files[0]);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+      
         if (!name) {
           setNameError(true);
         }
@@ -29,17 +31,42 @@ const AddCardModal = ({ closeModal }) => {
           setDescriptionError(true);
         }
       
-        if (imageFile) {
+        if (image) {
           const reader = new FileReader();
           reader.onload = () => {
             localStorage.setItem("image", reader.result);
           };
-          reader.readAsDataURL(imageFile);
+          reader.readAsDataURL(image);
         }
       
-        // Save other form data to local storage
-        localStorage.setItem("name", name);
-        localStorage.setItem("description", description);
+        // Retrieve existing data from localStorage
+        const existingData = localStorage.getItem("cardData");
+        let cardData = [];
+      
+        if (existingData) {
+          cardData = JSON.parse(existingData);
+        }
+      
+        // Generate a unique ID
+        const id = Date.now();
+      
+        // Create a new card object
+        const newCard = {
+          id,
+          avatar,
+          name,
+          description,
+          image: localStorage.getItem("image"),
+        };
+      
+        // Add the new card to the existing data
+        cardData.push(newCard);
+      
+        // Sort the cardData array by ID
+        // cardData.sort((a, b) => a.id - b.id);
+      
+        // Save the updated data to localStorage
+        localStorage.setItem("cardData", JSON.stringify(cardData));
       
         const CLOUD_NAME = "dfswkp2bn";
         const PRESET_NAME = "ArtGallery";
@@ -50,19 +77,19 @@ const AddCardModal = ({ closeModal }) => {
         const formData = new FormData();
         formData.append("upload_preset", PRESET_NAME);
         formData.append("folder", FOLDER_NAME);
+        formData.append("file", image);
       
         try {
-          formData.append("file", imageFile);
           const response = await axios.post(api, formData, {
             headers: {
               "Content-Type": "multipart/form-data"
             },
           });
       
-          // Xử lý response thành công
+          // Handle successful response
           console.log(response.data);
         } catch (error) {
-          // Xử lý lỗi
+          // Handle error
           console.error(error);
         }
       };
