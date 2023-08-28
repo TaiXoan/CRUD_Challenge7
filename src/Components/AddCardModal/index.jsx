@@ -3,12 +3,12 @@ import axios from 'axios';
 import styles from './styles.module.css';
 
 const AddCardModal = ({ closeModal }) => {
-    
-    const [avatar,setAvatar]=useState("")
+
+    const [avatar, setAvatar] = useState("");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [image,setImage]=useState("")
-
+    const [image, setImage] = useState("");
+    const imageBase64 = localStorage.getItem("image");
     const [nameError, setNameError] = useState(false);
     const [descriptionError, setDescriptionError] = useState(false);
 
@@ -23,76 +23,75 @@ const AddCardModal = ({ closeModal }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
+
         if (!name) {
-          setNameError(true);
+            setNameError(true);
         }
         if (!description) {
-          setDescriptionError(true);
+            setDescriptionError(true);
         }
-      
+
         if (image) {
-          const reader = new FileReader();
-          reader.onload = () => {
-            localStorage.setItem("image", reader.result);
-          };
-          reader.readAsDataURL(image);
+            const reader = new FileReader();
+            reader.onload = () => {
+                localStorage.setItem("image", reader.result);
+            };
+            reader.readAsDataURL(image);
         }
-      
+
         // Retrieve existing data from localStorage
         const existingData = localStorage.getItem("cardData");
         let cardData = [];
-      
+
         if (existingData) {
-          cardData = JSON.parse(existingData);
+            cardData = JSON.parse(existingData);
         }
-      
+
         // Generate a unique ID
         const id = Date.now();
-      
+
         // Create a new card object
         const newCard = {
-          id,
-          avatar,
-          name,
-          description,
-          image: localStorage.getItem("image"),
+            id,
+            avatar,
+            name,
+            description,
+            image: localStorage.getItem("image"),
         };
-      
+
         // Add the new card to the existing data
         cardData.push(newCard);
-      
+
         // Sort the cardData array by ID
         // cardData.sort((a, b) => a.id - b.id);
-      
+
         // Save the updated data to localStorage
         localStorage.setItem("cardData", JSON.stringify(cardData));
-      
+
         const CLOUD_NAME = "dfswkp2bn";
         const PRESET_NAME = "ArtGallery";
         const FOLDER_NAME = "ArtGallery";
-        const urls = [];
         const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
-      
+
         const formData = new FormData();
         formData.append("upload_preset", PRESET_NAME);
         formData.append("folder", FOLDER_NAME);
         formData.append("file", image);
-      
+
         try {
-          const response = await axios.post(api, formData, {
-            headers: {
-              "Content-Type": "multipart/form-data"
-            },
-          });
-      
-          // Handle successful response
-          console.log(response.data);
+            const response = await axios.post(api, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                },
+            });
+
+            // Handle successful response
+            console.log(response.data);
         } catch (error) {
-          // Handle error
-          console.error(error);
+            // Handle error
+            console.error(error);
         }
-      };
+    };
     return (
         <form onSubmit={handleSubmit}>
             <div className={styles.modal}>

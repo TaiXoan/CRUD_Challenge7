@@ -31,6 +31,7 @@ const CardList = () => {
   const [modalDeleteIsOpen, setModalDeleteIsOpen] = useState(false);
   const [savedImage, setSavedImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleUploadImage = (event) => {
     const file = event.target.files[0];
@@ -53,28 +54,26 @@ const CardList = () => {
   function closeModal() {
     setIsOpen(false);
   };
-
-  function openDeleteModal() {
+  function openDeleteModal(index) {
+    setDeleteIndex(index);
     setModalDeleteIsOpen(true);
-  };
+  }
 
   function closeDeleteModal() {
     setModalDeleteIsOpen(false);
   };
 
   const [deleteIndex, setDeleteIndex] = React.useState(null);
-  const handleDeleteContent = async (index) => {
+  const handleDeleteContent = async () => {
     // Make a copy of the dataLocal array so that it doesn't affect the state directly
     const newDataLocal = [...dataLocal];
-    newDataLocal.splice(index, 1);
+    newDataLocal.splice(deleteIndex, 1);
 
-    // Update Local Storage with array newDataLocal
+    // Update Local Storage with the updated newDataLocal array
     localStorage.setItem("cardData", JSON.stringify(newDataLocal));
 
     // Update dataLocal state to cause page re-rendering
-    setDeleteIndex(newDataLocal);
-
-    closeDeleteModal();
+    setModalDeleteIsOpen(false);
   };
   return (
     <>
@@ -94,15 +93,16 @@ const CardList = () => {
         contentLabel="Delete Modal">
         <TrashModal
           closeModal={closeDeleteModal}
-          deleteContent={() => handleDeleteContent(deleteIndex)}>
-        </TrashModal>
+          deleteContent={handleDeleteContent}
+          deleteIndex={deleteIndex}
+        />
       </Modal>
       {/* <div className={styles.formcard}>
         {data.map((item, index) => (
           <div className={styles['card-container']} key={index}>
             <div className={styles['card-header']}>
               <div className={styles['profile-image']}>
-                <img
+                      <img
                   src={item.profile}
                   alt={item.name}
                 />
@@ -157,7 +157,8 @@ const CardList = () => {
             <div className={styles['card-header']}>
               <div className={styles['profile-image']}>
                 <img
-                  src={item.profile}
+                  src={imagePreview || item.img}
+                  alt="Image"
                 />
               </div>
               <div className={styles['header-content']}>
@@ -179,7 +180,7 @@ const CardList = () => {
                   </div>
                   <div className={styles.DeleteIcon}>
                     <img
-                      onClick={openDeleteModal}
+                      onClick={() => openDeleteModal(index)}
                       src='Images/DeleteIcon.svg'
                       alt='Delete'
                     />
@@ -204,7 +205,6 @@ const CardList = () => {
           </div>
         ))}
       </div>
-      
     </>
   );
 };

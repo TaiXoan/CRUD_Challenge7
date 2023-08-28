@@ -9,7 +9,7 @@ import DetailPage from "./Components/DetailPage";
 import Header from "./Components/Header/Header";
 import {Cloudinary} from "@cloudinary/url-gen";
 const App = () => {
-  const cld = new Cloudinary({cloud: {cloudName: 'dfswkp2bn'}});
+  const cld = new Cloudinary({cloud: {cloudName: 'dclqs7tz9'}});
   return (
     <BrowserRouter>
 
