@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Modal from "react-modal";
 import AddCardModal from '../AddCardModal';
 import TrashModal from '../TrashModal';
+
 import { format } from 'date-fns';
 
 const customStyles = {
@@ -32,6 +33,7 @@ const CardList = () => {
   const [savedImage, setSavedImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+
 
   const handleUploadImage = (event) => {
     const file = event.target.files[0];
@@ -71,9 +73,10 @@ const CardList = () => {
 
     // Update Local Storage with the updated newDataLocal array
     localStorage.setItem("cardData", JSON.stringify(newDataLocal));
-
     // Update dataLocal state to cause page re-rendering
     setModalDeleteIsOpen(false);
+    window.location.reload();
+
   };
   return (
     <>
